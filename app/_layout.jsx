@@ -16,6 +16,7 @@ const RootLayout = () => {
         <Stack.Screen name='auth/forgotpassword'  options={{ headerShown: false }} />
         <Stack.Screen name='auth/otp'  options={{ headerShown: false }} />
         <Stack.Screen name='auth/rest-password'  options={{ headerShown: false }} />
+        <Stack.Screen name='screen/user'  options={{ headerShown: false }} />
       </Stack>
     </>
 

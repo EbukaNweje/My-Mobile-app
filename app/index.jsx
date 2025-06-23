@@ -1,122 +1,110 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import StartedImage from '../assets/img/undraw_interview_yz52.png'
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
-
+import StartedImage from '../assets/img/undraw_interview_yz52.png';
 
 const Index = () => {
   const router = useRouter();
+
   return (
-    <View style={styles.container}>
-        <Image source = {StartedImage} style={styles.imageStyle}/>
-        <View style = {styles.HeaderText}>
-            <Text style={styles.HeaderTextBig}>Discover Your Dream Job</Text>
-            <Text style={styles.HeaderTextsmall}>
-              Explore all the existing job roles based on your 
-              interest and study major
-            </Text>
-        </View>
-        <View style = {styles.ButtonContainer}>
-            <TouchableOpacity style = {styles.ButtonLogin}
-            onPress={() => router.push('/auth/login')}
-            >
-                <Text style={styles.ButtonLoginText}>Login</Text>
-            </TouchableOpacity> 
+    <SafeAreaView style={styles.container}>
+      <View style={styles.inner}>
+        <Image source={StartedImage} style={styles.imageStyle} resizeMode="contain" />
 
-            <TouchableOpacity style = {styles.ButtonRegister}
-            onPress={() => router.push('/auth/register')}
-            >
-                <Text style={styles.ButtonRegisterText}>Register</Text>
-            </TouchableOpacity> 
+        <View style={styles.textContainer}>
+          <Text style={styles.header}>Discover Your Dream Job</Text>
+          <Text style={styles.subText}>
+            Explore all the existing job roles based on your interest and study major
+          </Text>
         </View>
-    </View>
-  )
-}
 
-export default Index
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/auth/login')}>
+            <Text style={styles.loginText}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.registerButton} onPress={() => router.push('/auth/register')}>
+            <Text style={styles.registerText}>Register</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default Index;
 
 const styles = StyleSheet.create({
-  container : {
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  inner: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    paddingHorizontal: 24,
   },
-
-  imageStyle : {
+  imageStyle: {
     width: 300,
     height: 300,
+    marginBottom: 30,
   },
-
-  HeaderText : {
-    width: "100%",
-    height: "25%",
-    // backgroundColor: 'red',
-    // display: 'flex',
+  textContainer: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  header: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: 'purple',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  subText: {
+    fontSize: 18,
+    color: 'gray',
+    textAlign: 'center',
+    lineHeight: 24,
+  },
+  buttonGroup: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  loginButton: {
+    flex: 1,
+    backgroundColor: 'purple',
+    height: 60,
+    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column',
-    gap: 20
+    marginRight: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 2,
   },
-  HeaderTextBig : {
-   fontSize: 40,
-   width: "70%",
-   textAlign: 'center',
-   fontFamily: "sans-serif",
-   fontWeight: 'bold',
-   color: 'purple',
+  loginText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
-
-  HeaderTextsmall : {
-    fontSize: 20,
-    width: "90%",
-    textAlign: 'center',
-    fontFamily: "sans-serif",
-    fontWeight: 300,
-    color: 'gray',
-  },
-
-  ButtonContainer: {
-    width: "80%",
-    height: "10%",
-    // backgroundColor: "red",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-
-  ButtonLogin : {
-    width: "60%",
+  registerButton: {
+    flex: 1,
+    backgroundColor: 'white',
     height: 60,
-    backgroundColor: "purple",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 3,
-   shadowColor: "#000",
-   shadowOffset: { width: 0, height: 2 },
-   shadowOpacity: 0.2,
-   shadowRadius: 2,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    borderWidth: 1,
+    borderColor: 'purple',
   },
-
-  ButtonLoginText: {
-  color: "white",
-  fontSize: 20,
-  fontWeight: "bold"
-},
-
-ButtonRegister : {
-    width: "40%",
-    height: 60,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 3,
+  registerText: {
+    color: 'purple',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
-
-  ButtonRegisterText: {
-  color: "black",
-  fontSize: 20,
-  fontWeight: "bold"
-},
-
-})
+});

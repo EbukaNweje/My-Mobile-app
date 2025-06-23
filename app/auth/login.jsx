@@ -23,6 +23,7 @@ const Login = () => {
 
   const handleLogin = () => {
     console.log('Logging in with:', email, password)
+    router.push('screen/user')
   }
 
   return (
@@ -30,7 +31,7 @@ const Login = () => {
       style={{ flex: 1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      {/* Fixed Back Button */}
+     
       <View style={styles.topNav}>
         <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={24} color="purple" /> 
@@ -263,6 +264,11 @@ const styles = StyleSheet.create({
     backgroundColor:"rgb(236, 233, 251)",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 3
+    borderRadius: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   }
 })

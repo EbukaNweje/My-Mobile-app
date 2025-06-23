@@ -279,12 +279,17 @@ const styles = StyleSheet.create({
     color: "purple"
   },
 
-  bottomNavIcon: {
+ bottomNavIcon: {
     width: "25%",
     height: "70%",
     backgroundColor:"rgb(236, 233, 251)",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 3
+    borderRadius: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   }
 })
